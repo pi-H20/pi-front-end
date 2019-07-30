@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import SERVER_URL from './constant/server';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import Login from './auth/Login';
+import Signup from './auth/Signup';
+import Navbar from './components/Navbar';
+import AboutUs from './components/AboutUs';
+import Home from './components/Home';
 import './App.css';
 
 export default class App extends Component {
@@ -43,7 +49,21 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        
+        <Router>
+          <Navbar user={this.state.user} updateUser={this.getUser} />
+          <Route exact path="/" component={
+            () => (<Home />)
+          } />
+          <Route path="/aboutus" component={
+            () => (<AboutUs />)
+          } />
+          <Route path="/login" component={
+              () => (<Login user={this.state.user} updateUser={this.getUser}  />)
+            } />
+            <Route path="/signup" component={
+              () => (<Signup user={this.state.user} updateUser={this.getUser} />)
+            } />
+        </Router>
       </div>
     )
   }
