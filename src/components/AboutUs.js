@@ -20,15 +20,15 @@ class AboutUs extends Component {
        
         
         <section className = 'aboutLiz'>
-          <img className = 'ourImage' src= {``} alt={`Liz`}/>
-            <h2>Williams</h2>
+          <img className = 'ourImage' src= {`https://ca.slack-edge.com/T039KG69K-UC6083WFP-62d0a3f3d5b2-512`} alt={`Liz`}/>
+            <h2>Liz</h2>
             <p className = 'LizPara'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum provident nulla ratione, porro possimus consequuntur vitae cum voluptates amet laboriosam. Iste dolores modi molestias nihil harum suscipit maxime eum mollitia!</p>
         </section>
         
 
         <section className = 'aboutJorie'>
-          <img className = 'ourImage' src={``} alt={`Jorie`}/>
-            <h2>Sudip</h2>
+          <img className = 'ourImage' src={`https://ca.slack-edge.com/T039KG69K-UH2KYU924-9ca25c3b8dfe-512`} alt={`Jorie`}/>
+            <h2>Jorie</h2>
             <p className = 'JoriePara'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit facilis quo, quas voluptas porro nam architecto ipsam saepe? Aperiam officia delectus deserunt deleniti blanditiis minima? Dolore optio expedita sunt tenetur!</p>
         </section>        
       </div>
@@ -36,5 +36,6 @@ class AboutUs extends Component {
     )
   }
 }
+
 
 export default AboutUs;
