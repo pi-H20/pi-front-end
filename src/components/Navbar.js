@@ -20,7 +20,7 @@ export default class Navbar extends Component {
           <nav className="navbar">
             <div className="nav-wrapper">
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <img src={logo} alt="logo" />
+                <Link to="/"><img src={logo} alt="logo" /></Link>
                 <li className = 'menuItem'><Link to="/">Home</Link></li>
                 <li className = 'menuItem'><Link to="/aboutus">About Us</Link></li>
                 <li className = 'menuItem'><Link to="/profile">Profile</Link></li>
@@ -38,7 +38,7 @@ export default class Navbar extends Component {
           <nav className="navbar">
             <div className="nav-wrapper">
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <img src={logo} alt="logo" />
+                <Link to="/"><img src={logo} alt="logo" class="img-logo"  /></Link>
                 <li className = 'menuItem'><Link to="/aboutus">About Us</Link></li>
                 <li className = 'menuItem'><Link to="/login">Log In</Link></li>
                 <li className = 'menuItem'><Link to="/signup">Sign Up</Link></li>
