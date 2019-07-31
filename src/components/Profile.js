@@ -1,22 +1,48 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react';
 // import SERVER_URL from '../constant/server'
 
+const API = 'http://watermyplant-backend-env.x589jebncj.us-east-1.elasticbeanstalk.com'
 
-export default class Profile extends Component {
-  render() {
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
+export default function Profile() {
+
+  const [status, setStatus] = useState('');
+
+  const _toggleStatus = (e) => {
+    e.preventDefault();
+    let id = e.target.id;
+    console.log(id);
+
+    // patch to my api
+    fetch(`${API}/${id}`, {
+      method: 'GET'
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch( console.error );
+  };
+
+  
+
+  
     return (
+
+      
       <div>
+        <p>{status}</p>
         {/* TODO Add 3 buttons ALL data, Toggle On/Off */}
-        <form action="http://localhost:3000/autoWaterOn" method="GET">
-          <input type="submit" name="waterOn" id="waterOn" value="Turn my Water On JEN!"/>
+        <form onSubmit={_toggleStatus} name="auto_water_on" id="auto_water_on">
+          <button>Turn on the Water</button>
         </form>
-        <form action="http://localhost:3000/autoWateroff" method="GET">
-          <input type="submit" name="waterOff" id="waterOff" value="Turn my Water Off biiiiiiiiiitch!"/>
+        <form onSubmit={_toggleStatus} name="auto_water_off" id="waterOff">
+          <button>Turn off the Water</button>
         </form>
-        <form action="http://localhost:3000/water_once" method="GET">
-          <input type="submit" name="waterOnce" id="waterOnce" value="Water My Shit Once!"/>
+        <form onSubmit={_toggleStatus} name="water_once" id="waterOnce">
+          <button>Water Once</button>
         </form>
       </div>
     )
   }
-}
+
