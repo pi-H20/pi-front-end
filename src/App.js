@@ -7,6 +7,7 @@ import Signup from './auth/Signup';
 import Navbar from './components/Navbar';
 import AboutUs from './components/AboutUs';
 import Home from './components/Home';
+import Profile from './components/Profile';
 import './App.css';
 
 export default class App extends Component {
@@ -60,9 +61,12 @@ export default class App extends Component {
           <Route path="/login" component={
               () => (<Login user={this.state.user} updateUser={this.getUser}  />)
             } />
-            <Route path="/signup" component={
-              () => (<Signup user={this.state.user} updateUser={this.getUser} />)
-            } />
+          <Route path="/signup" component={
+            () => (<Signup user={this.state.user} updateUser={this.getUser} />)
+          } />
+          <Route path="/profile" component={
+            () => (<Profile />)
+          } />
         </Router>
       </div>
     )
