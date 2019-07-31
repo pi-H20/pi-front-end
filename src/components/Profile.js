@@ -6,14 +6,16 @@ const API = 'http://localhost:3000';
 
 export default function Profile() {
 
+  //Set status
   const [status, setStatus] = useState('');
 
+  //Function to  call RPI command and update status
   const _toggleStatus = (e) => {
     e.preventDefault();
     let id = e.target.name;
     console.log(id);
 
-    // patch to my api
+    // patch to the api
     fetch(`${API}/${id}`, {
       method: 'GET'
     })
@@ -26,23 +28,20 @@ export default function Profile() {
     .catch( console.error );
   };
 
-  
-    return (
 
-      
-      <div>
-        <p>{status}</p>
-        {/* TODO Add 3 buttons ALL data, Toggle On/Off */}
-        <form onSubmit={_toggleStatus} name="auto_water_on" id="auto_water_on">
-          <button>Turn on the Water</button>
-        </form>
-        <form onSubmit={_toggleStatus} name="auto_water_off" id="waterOff">
-          <button>Turn off the Water</button>
-        </form>
-        <form onSubmit={_toggleStatus} name="water_once" id="waterOnce">
-          <button>Water Once</button>
-        </form>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <p>{status}</p>
+      <form onSubmit={_toggleStatus} name="auto_water_on" id="autoWaterOn">
+        <button>Turn on the Water</button>
+      </form>
+      <form onSubmit={_toggleStatus} name="auto_water_off" id="waterOff">
+        <button>Turn off the Water</button>
+      </form>
+      <form onSubmit={_toggleStatus} name="water_once" id="waterOnce">
+        <button>Water Once</button>
+      </form>
+    </div>
+  )
+}
 
