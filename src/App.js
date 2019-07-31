@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import AboutUs from './components/AboutUs';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import AllData from './components/AllData';
 import './App.css';
 
 export default class App extends Component {
@@ -26,24 +27,24 @@ export default class App extends Component {
     // SEE IF THERE'S A TOKEN
     let token = localStorage.getItem('serverToken');
     // IF THERE IS, TRY TO GET USER INFO
-    if(token){
-      axios.post(`${SERVER_URL}/auth/current/user`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      })
-      .then(response => {
-        this.setState({
-          user: response.data.user
-        });
-      })
-      .catch(err => {
-        console.log('Error looking up user by token', err, err.response);
-        this.setState({ user: null });
-      });
-    }
-    else {
-      console.log('No token in LS');
-      this.setState({ user: null });
-    }
+    // if(token){
+    //   axios.post(`${SERVER_URL}/auth/current/user`, {
+    //     headers: { 'Authorization': `Bearer ${token}` }
+    //   })
+    //   .then(response => {
+    //     this.setState({
+    //       user: response.data.user
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log('Error looking up user by token', err, err.response);
+    //     this.setState({ user: null });
+    //   });
+    // }
+    // else {
+    //   console.log('No token in LS');
+    //   this.setState({ user: null });
+    // }
   }
 
 
@@ -66,6 +67,9 @@ export default class App extends Component {
           } />
           <Route path="/profile" component={
             () => (<Profile />)
+          } />
+          <Route path="/data" component={
+            () => (<AllData />)
           } />
         </Router>
       </div>
