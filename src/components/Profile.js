@@ -1,9 +1,8 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import SERVER_URL from '../constant/server'
 
-const API = 'http://watermyplant-backend-env.x589jebncj.us-east-1.elasticbeanstalk.com'
-
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
+//const API = 'http://watermyplant-backend-env.x589jebncj.us-east-1.elasticbeanstalk.com'
+const API = 'http://localhost:3000';
 
 export default function Profile() {
 
@@ -11,20 +10,21 @@ export default function Profile() {
 
   const _toggleStatus = (e) => {
     e.preventDefault();
-    let id = e.target.id;
+    let id = e.target.name;
     console.log(id);
 
     // patch to my api
     fetch(`${API}/${id}`, {
       method: 'GET'
     })
-    .then(data => {
-      console.log(data);
+    .then(response => {
+      response.text().then((text) => {
+        console.log(text);
+        setStatus(text);
+      })
     })
     .catch( console.error );
   };
-
-  
 
   
     return (
