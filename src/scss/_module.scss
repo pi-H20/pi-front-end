@@ -2,3 +2,40 @@
     width: 115px;
     height: auto;
 }
+
+.main{
+    margin: auto 0;
+    padding: 10em;
+
+    flex-direction: row;
+}
+
+.aboutUs{
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: space-between;
+
+    section{
+        width: 200px;
+
+        h2{
+            text-align: center;
+            font-size: 36px;
+        }
+
+        p{
+            line-height: 2em;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        a{
+            text-align: center;
+            text-decoration: none;
+        }
+
+        img{
+            width: 200px;
+        }
+    }
+}

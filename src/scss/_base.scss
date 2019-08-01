@@ -7,6 +7,7 @@ nav{
     background-color: #bcdd7a;
     margin: auto 0;
     font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
 
     ul{
       display: flex;
@@ -22,15 +23,12 @@ nav{
         a{
             margin-top: 50px;
             text-decoration: none;
-            font-family: 'Noto Sans KR', sans-serif;
             color: #272a15;
         }
       }
 
       li:hover{
-          background-color: #272a15;
-
-          font-family: 'Noto Sans KR', sans-serif;
+          background-color: #3a5a01;
 
           a{
             color: #b6dac5;
