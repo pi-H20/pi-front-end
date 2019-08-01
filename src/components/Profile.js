@@ -33,10 +33,10 @@ export default function Profile() {
     <div>
       <p>{status}</p>
       <form onSubmit={_toggleStatus} name="auto_water_on" id="autoWaterOn">
-        <button>Turn on the Water</button>
+        <button>Turn on Auto-water</button>
       </form>
       <form onSubmit={_toggleStatus} name="auto_water_off" id="waterOff">
-        <button>Turn off the Water</button>
+        <button>Turn off Auto-water</button>
       </form>
       <form onSubmit={_toggleStatus} name="water_once" id="waterOnce">
         <button>Water Once</button>
