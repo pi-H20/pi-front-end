@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import SERVER_URL from '../constant/server';
 
+
 class Login extends Component {
   constructor(props){
     super(props);
@@ -31,6 +32,8 @@ class Login extends Component {
     });
   }
 
+
+
   render() {
     if(this.props.user){
       return (<Redirect to="/profile" />);
@@ -41,11 +44,11 @@ class Login extends Component {
           <form className = 'loginForm' onSubmit={this.handleSubmit}>
             <div>
              <label><b>Email Address</b></label>
-              <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
+              <input name="Email" value={this.state.email} onChange={this.handleEmailChange} />
             </div>
             <div>
             <label><b>Password</b></label>
-              <input name="Password" type="password" placeholder="What is your password?" value={this.state.password} onChange={this.handlePasswordChange} />
+              <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
             </div>
             <input type="submit" value="Log Me In!" className="button" />
           </form>

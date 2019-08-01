@@ -18,6 +18,7 @@ export default class Navbar extends Component {
           <nav className="navbar">
             <div className="nav-wrapper">
               <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <a href="/" className="brand-logo"> <img src='https://www.stickpng.com/assets/images/584830fecef1014c0b5e4aa2.png' className="App-logo" alt="logo" /></a>
                 <Link to="/"><img src={logo} alt="logo" /></Link>
                 <li className = 'menuItem'><Link to="/">Home</Link></li>
                 <li className = 'menuItem'><Link to="/aboutus">About Us</Link></li>
@@ -36,6 +37,7 @@ export default class Navbar extends Component {
           <nav className="navbar">
             <div className="nav-wrapper">
               <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <a href="/" className="brand-logo"> <img src='https://www.stickpng.com/assets/images/584830fecef1014c0b5e4aa2.png' className="App-logo" alt="logo" /></a>
                 <Link to="/"><img src={logo} alt="logo" className="img-logo"  /></Link>
                 <li className = 'menuItem'><Link to="/aboutus">About Us</Link></li>
                 <li className = 'menuItem'><Link to="/login">Log In</Link></li>

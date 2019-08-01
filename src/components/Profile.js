@@ -25,11 +25,19 @@ export default class Profile extends Component {
     })
     .catch( console.error );
   };
-  
+
+  // Helper function to capitalize the first letter of the first name of user
+  firstCapitalization = (firstName) => {
+    if(firstName != null){
+      return firstName.charAt(0).toUpperCase() + firstName.slice(1)
+    }
+
+  }
+
   render() {
     return (
       <div>
-        <h1>Welcome: {this.props.user.name}</h1>
+        <h2>Welcome: {this.firstCapitalization(this.props.user.name)}</h2>
         <h2>email: {this.props.user.email}</h2>
         <div>{this.state.status}</div>
         <form onSubmit={this._toggleStatus} name="Successfully turned auto water ON" id="auto_water_on">
