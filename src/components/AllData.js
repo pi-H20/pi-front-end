@@ -24,6 +24,7 @@ export default function AllData() {
     fetch(API)
     .then( data => data.json())
     .then(readingList => {
+       readingList.reverse();
        setReadings(readingList);
     })
 
@@ -34,7 +35,7 @@ export default function AllData() {
   
   return (
     <>
-    <p>Readings</p>
+    <h2>Times the plant was watered:</h2>
     <ul>
     {readings.map( (reading, index) =>
       <li key={index}>
