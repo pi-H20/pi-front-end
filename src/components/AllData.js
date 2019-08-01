@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SERVER_URL from '../constant/server';
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
 export default function AllData() {
   
   //Set status
