@@ -24,8 +24,9 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    this.setEmail();
+
     this.getUser();
+    this.setEmail();
     
   }
 
@@ -34,6 +35,8 @@ export default class App extends Component {
     let token = localStorage.getItem('serverToken');
     // IF THERE IS, TRY TO GET USER INFO
     if(token){
+      console.log('Found token in LS', token);
+      console.log(this.state.user);
       axios.post(`${SERVER_URL}/auth/current/user`, {
         headers: { 'Authorization': `Bearer ${token}`},
         body: this.state.email

@@ -1,46 +1,47 @@
-import React, { useState } from 'react';
-import SERVER_URL from '../constant/server'
+import React, { Component } from 'react';
+import SERVER_URL from '../constant/server';
 
-export default function Profile() {
+export default class Profile extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      status: ""
+    }
+  }
 
-  //Set status
-  const [status, setStatus] = useState('');
-
-  //Function to  call RPI command and update status
-  const _toggleStatus = (e) => {
+  _toggleStatus = (e) => {
     e.preventDefault();
-    let id = e.target.name;
-    console.log(id);
+    let id = e.target.id;
+    let name = e.target.name;
 
     // patch to the api
     fetch(`${SERVER_URL}/${id}`, {
       method: 'GET'
     })
     .then(response => {
-      response.text().then((text) => {
-        console.log(text);
-        setStatus(text);
+      this.setState({
+        status: name
       })
     })
     .catch( console.error );
   };
-
-
-  return (
-    <div>
-      <p>{status}</p>
-      <form onSubmit={_toggleStatus} name="auto_water_on" id="autoWaterOn">
-        <button>Turn on Auto-water</button>
-      </form>
-      <form onSubmit={_toggleStatus} name="auto_water_off" id="waterOff">
-        <button>Turn off Auto-water</button>
-      </form>
-      <form onSubmit={_toggleStatus} name="water_once" id="waterOnce">
-        <button>Water Once</button>
-      </form>
-    </div>
-  )
-
   
+  render() {
+    return (
+      <div>
+        <h1>Welcome: {this.props.user.name}</h1>
+        <h2>email: {this.props.user.email}</h2>
+        <div>{this.state.status}</div>
+        <form onSubmit={this._toggleStatus} name="Successfully turned auto water ON" id="auto_water_on">
+          <button>Turn on Auto-water</button>
+        </form>
+        <form onSubmit={this._toggleStatus} name="Successfully turned auto water OFF"  id="auto_water_off">
+          <button>Turn off Auto-water</button>
+        </form>
+        <form onSubmit={this._toggleStatus} name="Successfully Watered once!" id="water_once">
+          <button>Water Once</button>
+        </form>
+      </div>
+    )
+  }
 }
-

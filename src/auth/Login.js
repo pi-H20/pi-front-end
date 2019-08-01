@@ -21,7 +21,7 @@ class Login extends Component {
     // SEND DATA TO SERVER
     axios.post(`${SERVER_URL}/auth/login`, this.state)
     .then(response => {
-      localStorage.setItem('serverToken', JSON.stringify(response.data.token));
+      localStorage.setItem('serverToken', response.data.token.toString());
       this.props.setEmail(this.state.email);
       this.props.updateUser();
       
