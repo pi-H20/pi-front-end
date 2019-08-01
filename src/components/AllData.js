@@ -31,7 +31,7 @@ export default function AllData() {
   
   return (
     <>
-    <h2>Times the plant was watered:</h2>
+    <h2>Times the plant was watered via low sensor:</h2>
     <ul>
     {readings.map( (reading, index) =>
       <li key={index}>
