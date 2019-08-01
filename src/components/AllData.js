@@ -16,7 +16,7 @@ export default function AllData() {
   const _getReadings = () => {
     
     // fetch from API
-    fetch(proxyurl + `${SERVER_URL}/data`)
+    fetch(`${SERVER_URL}/data`)
     .then( data => data.json())
     .then(readingList => {
        readingList.reverse();
