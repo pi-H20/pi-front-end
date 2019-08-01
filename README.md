@@ -6,7 +6,7 @@ WaterMyPlant is a Raspberry Pi enabled app that allows users to water their plan
 ***
 ### Git clone this repo
 
-In the project directory, you can run the application locally:
+To run the application locally, in the project directory, you can run:
 
 ### `npm start`
 
