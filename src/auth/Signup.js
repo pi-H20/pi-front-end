@@ -24,10 +24,9 @@ class Signup extends Component {
     // SEND DATA TO SERVER
     axios.post(`${SERVER_URL}/auth/signup`, this.state)
     .then(response => {
-      console.log(response);
       // Assume we have a token that we should save to LS
-      localStorage.setItem('serverToken', response.data.token);
-      // Need to update... somehow
+      localStorage.setItem('serverToken', JSON.stringify(response.data.token));
+      this.props.setEmail(this.state.email);
       this.props.updateUser();
     })
     .catch(err => {

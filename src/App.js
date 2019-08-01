@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import AboutUs from './components/AboutUs';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import AllData from './components/AllData';
 import './App.css';
 
 export default class App extends Component {
@@ -64,27 +65,53 @@ export default class App extends Component {
 
 
   render() {
-    return (
-      <div>
-        <Router>
-          <Navbar user={this.state.user} updateUser={this.getUser} />
-          <Route exact path="/" component={
-            () => (<Home />)
-          } />
-          <Route path="/aboutus" component={
-            () => (<AboutUs />)
-          } />
-          <Route path="/login" component={
-              () => (<Login user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+    if(this.state.user){
+      return (
+        <div>
+          <Router>
+            <Navbar user={this.state.user} updateUser={this.getUser} />
+            <Route exact path="/" component={
+              () => (<Home />)
             } />
-          <Route path="/signup" component={
-            () => (<Signup user={this.state.user} updateUser={this.getUser} />)
-          } />
-          <Route path="/profile" component={
-            () => (<Profile />)
-          } />
-        </Router>
-      </div>
-    )
+            <Route path="/aboutus" component={
+              () => (<AboutUs />)
+            } />
+            <Route path="/login" component={
+                () => (<Login user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+              } />
+            <Route path="/signup" component={
+              () => (<Signup user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+            } />
+            <Route path="/profile" component={
+              () => (<Profile user={this.state.user} updateUser={this.getUser} />)
+            } />
+            <Route path="/data" component={
+              () => (<AllData user={this.state.user} updateUser={this.getUser} />)
+            } />
+          </Router>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Router>
+            <Navbar user={this.state.user} updateUser={this.getUser} />
+            <Route exact path="/" component={
+              () => (<Home />)
+            } />
+            <Route path="/aboutus" component={
+              () => (<AboutUs />)
+            } />
+            <Route path="/login" component={
+                () => (<Login user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+              } />
+            <Route path="/signup" component={
+              () => (<Signup user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+            } />
+          </Router>
+        </div>
+      )
+    }
+    
   }
 }
