@@ -4,6 +4,7 @@ import logo from '../images/piLogo.png';
 
 
 export default class Navbar extends Component {
+
   handleLogout = async (e) => {
     e.preventDefault();
     // REMOVE LS TOKEN; UPDATE PARENT STATE
@@ -23,8 +24,8 @@ export default class Navbar extends Component {
                 <li className = 'menuItem'><Link to="/">Home</Link></li>
                 <li className = 'menuItem'><Link to="/aboutus">About Us</Link></li>
                 <li className = 'menuItem'><Link to="/profile">Profile</Link></li>
-                <li><button className="logout-button" onClick={this.handleLogout}><Link to="/">Logout</Link></button></li>
                 <li className = 'menuItem'><Link to="/data">All Data</Link></li>
+                <li className = 'menuItem' onClick={this.handleLogout.bind(this)}><Link to="/">Logout</Link></li>
               </ul>
             </div>
           </nav>
