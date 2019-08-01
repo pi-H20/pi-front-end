@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SERVER_URL from '../constant/server';
 
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 export default function AllData() {
   
@@ -17,7 +18,7 @@ export default function AllData() {
   const _getReadings = () => {
     
     // fetch from API
-    fetch(`${SERVER_URL}/data`)
+    fetch(proxyurl + `${SERVER_URL}/data`)
     .then( data => data.json())
     .then(readingList => {
        readingList.reverse();
