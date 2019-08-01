@@ -41,6 +41,7 @@ h2 {
   font-family: $p_cursive;
   font-size: $min_h2-size;
   padding: $gutter_std / 4 $gutter_std;
+  text-align: center;
 }
 
 button {
@@ -57,6 +58,12 @@ button {
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+button:hover {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
 }
 
 form {
