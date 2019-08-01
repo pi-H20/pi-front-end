@@ -6,7 +6,7 @@ WaterMyPlant is a Raspberry Pi enabled app that allows users to water their plan
 ***
 ### Git clone this repo
 
-In the project directory, you can run:
+In the project directory, you can run the application locally:
 
 ### `npm start`
 
@@ -29,9 +29,9 @@ https://pi-front-end-pifrontend1-1gmpoopvgv5q.s3-us-west-2.amazonaws.com/profile
 https://github.com/pi-H20/pi-back-end
 
 **Routes**
-`\login` -> log in page
-`\signup` -> sign up page
-`\aboutus` -> about us page, images and links for the developers
+* `\login` -> log in page
+* `\signup` -> sign up page
+* `\aboutus` -> about us page, images and links for the developers
 #### Once you are logged in:
-`\profile` -> inner landing page, has three buttons to control the Raspberry Pi
-`\data` -> shows a list of all the times the Pi was triggered to release
+* `\profile` -> inner landing page, has three buttons to control the Raspberry Pi
+* `\data` -> shows a list of all the times the Pi was triggered to release
