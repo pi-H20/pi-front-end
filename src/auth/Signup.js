@@ -25,7 +25,7 @@ class Signup extends Component {
     axios.post(`${SERVER_URL}/auth/signup`, this.state)
     .then(response => {
       // Assume we have a token that we should save to LS
-      localStorage.setItem('serverToken', JSON.stringify(response.data.token));
+      localStorage.setItem('serverToken', response.data.token.toString());
       this.props.setEmail(this.state.email);
       this.props.updateUser();
     })
@@ -44,15 +44,15 @@ class Signup extends Component {
           <form className = 'signupForm' onSubmit={this.handleSubmit}>
             <div>
             <label><b>Name</b></label>
-              <input name="Name" placeholder="What is your name" value={this.state.name} onChange={this.handleNameChange} />
+              <input name="Name" value={this.state.name} onChange={this.handleNameChange} />
             </div>
             <div>
             <label><b>Email Address</b></label>
-              <input name="Email" placeholder="What is your email" value={this.state.email} onChange={this.handleEmailChange} />
+              <input name="Email" value={this.state.email} onChange={this.handleEmailChange} />
             </div>
             <div>
             <label><b>Password</b></label>
-              <input name="Password" type="Password" placeholder="What is your password" value={this.state.password} onChange={this.handlePasswordChange} />
+              <input name="Password" type="Password" value={this.state.password} onChange={this.handlePasswordChange} />
             </div>
             <input type="submit" value="Sign Me Up!" className="button" />
           </form>

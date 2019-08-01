@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import SERVER_URL from '../constant/server';
 
+
 class Login extends Component {
   constructor(props){
     super(props);
@@ -21,7 +22,7 @@ class Login extends Component {
     // SEND DATA TO SERVER
     axios.post(`${SERVER_URL}/auth/login`, this.state)
     .then(response => {
-      localStorage.setItem('serverToken', JSON.stringify(response.data.token));
+      localStorage.setItem('serverToken', response.data.token.toString());
       this.props.setEmail(this.state.email);
       this.props.updateUser();
       
@@ -30,6 +31,8 @@ class Login extends Component {
       console.log(`Error logging in.`, err);
     });
   }
+
+
 
   render() {
     if(this.props.user){
@@ -41,11 +44,11 @@ class Login extends Component {
           <form className = 'loginForm' onSubmit={this.handleSubmit}>
             <div>
              <label><b>Email Address</b></label>
-              <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
+              <input name="Email" value={this.state.email} onChange={this.handleEmailChange} />
             </div>
             <div>
             <label><b>Password</b></label>
-              <input name="Password" type="password" placeholder="What is your password?" value={this.state.password} onChange={this.handlePasswordChange} />
+              <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
             </div>
             <input type="submit" value="Log Me In!" className="button" />
           </form>
