@@ -35,7 +35,7 @@ export default function AllData() {
     <ul>
     {readings.map( (reading, index) =>
       <li key={index}>
-        <p>{convert(reading).timestamp.toLocaleString()}</p>
+        <p>{index + 1} : {convert(reading).timestamp.toLocaleString()}</p>
       </li>
     )}
   </ul>

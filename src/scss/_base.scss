@@ -46,6 +46,15 @@ h2 {
   font-weight: bold;
 }
 
+h3 {
+  font-family: $p_cursive;
+  font-size: $min_h2-size - 4;
+  padding: $gutter_std / 4 $gutter_std;
+  text-align: center;
+  margin: 30px;
+  font-weight: bold;
+}
+
 button {
   padding: 19px 25px 18px 25px;
   color: #FFF;
@@ -95,6 +104,10 @@ label {
   margin-bottom: 10px;
   font-size: 22px;
   font-family: $base_font;
+}
+
+ul{
+  text-align: center
 }
 
 
