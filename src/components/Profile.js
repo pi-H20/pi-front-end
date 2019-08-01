@@ -38,7 +38,6 @@ export default class Profile extends Component {
     return (
       <div>
         <h2>Welcome {this.firstCapitalization(this.props.user.name)}</h2>
-        <h2>email: {this.props.user.email}</h2>
         <div>{this.state.status}</div>
         <form onSubmit={this._toggleStatus} name="Successfully turned auto water ON" id="auto_water_on">
           <button>Turn on Auto-water</button>
