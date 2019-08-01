@@ -15,64 +15,103 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: null
+      user: {
+        email: null,
+        name: null,
+      },
+      email: null
     }
   }
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.setEmail();
     this.getUser();
+    
   }
 
   getUser = () => {
     // SEE IF THERE'S A TOKEN
     let token = localStorage.getItem('serverToken');
     // IF THERE IS, TRY TO GET USER INFO
-    // if(token){
-    //   axios.post(`${SERVER_URL}/auth/current/user`, {
-    //     headers: { 'Authorization': `Bearer ${token}` }
-    //   })
-    //   .then(response => {
-    //     this.setState({
-    //       user: response.data.user
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log('Error looking up user by token', err, err.response);
-    //     this.setState({ user: null });
-    //   });
-    // }
-    // else {
-    //   console.log('No token in LS');
-    //   this.setState({ user: null });
-    // }
+    if(token){
+      axios.post(`${SERVER_URL}/auth/current/user`, {
+        headers: { 'Authorization': `Bearer ${token}`},
+        body: this.state.email
+      })
+      .then(response => {
+        this.setState({
+          user: {
+            email: response.data.email,
+            name: response.data.name
+          }
+        });
+      })
+      .catch(err => {
+        console.log('Error looking up user by token', err, err.response);
+        this.setState({ user: null });
+      });
+    }
+    else {
+      console.log('No token in LS');
+      this.setState({ user: null });
+    }
+  }
+
+  setEmail = (email) => {
+    this.setState({
+      email: email
+    })
   }
 
 
   render() {
-    return (
-      <div>
-        <Router>
-          <Navbar user={this.state.user} updateUser={this.getUser} />
-          <Route exact path="/" component={
-            () => (<Home />)
-          } />
-          <Route path="/aboutus" component={
-            () => (<AboutUs />)
-          } />
-          <Route path="/login" component={
-              () => (<Login user={this.state.user} updateUser={this.getUser}  />)
+    if(this.state.user){
+      return (
+        <div>
+          <Router>
+            <Navbar user={this.state.user} updateUser={this.getUser} />
+            <Route exact path="/" component={
+              () => (<Home />)
             } />
-          <Route path="/signup" component={
-            () => (<Signup user={this.state.user} updateUser={this.getUser} />)
-          } />
-          <Route path="/profile" component={
-            () => (<Profile />)
-          } />
-          <Route path="/data" component={
-            () => (<AllData />)
-          } />
-        </Router>
-      </div>
-    )
+            <Route path="/aboutus" component={
+              () => (<AboutUs />)
+            } />
+            <Route path="/login" component={
+                () => (<Login user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+              } />
+            <Route path="/signup" component={
+              () => (<Signup user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+            } />
+            <Route path="/profile" component={
+              () => (<Profile user={this.state.user} updateUser={this.getUser} />)
+            } />
+            <Route path="/data" component={
+              () => (<AllData user={this.state.user} updateUser={this.getUser} />)
+            } />
+          </Router>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Router>
+            <Navbar user={this.state.user} updateUser={this.getUser} />
+            <Route exact path="/" component={
+              () => (<Home />)
+            } />
+            <Route path="/aboutus" component={
+              () => (<AboutUs />)
+            } />
+            <Route path="/login" component={
+                () => (<Login user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+              } />
+            <Route path="/signup" component={
+              () => (<Signup user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
+            } />
+          </Router>
+        </div>
+      )
+    }
+    
   }
 }

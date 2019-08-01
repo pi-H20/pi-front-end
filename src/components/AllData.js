@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { tsConstructorType } from '@babel/types';
 
 
 //const API = 'http://watermyplant-backend-env.x589jebncj.us-east-1.elasticbeanstalk.com/data'
