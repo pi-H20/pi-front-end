@@ -41,7 +41,7 @@ class Signup extends Component {
     return(
         <div className = 'signupDiv'>
           <h2>Signup as a new user</h2>
-          <form className = 'signupForm' onSubmit={this.handleSubmit}>
+          <form  onSubmit={this.handleSubmit}>
             <div>
             <label><b>Name</b></label>
               <input name="Name" value={this.state.name} onChange={this.handleNameChange} />
