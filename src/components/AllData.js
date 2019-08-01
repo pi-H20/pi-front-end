@@ -10,7 +10,7 @@ export default function AllData() {
   //Convert timestamp from epoch to readable date
   const convert = (cur) => {
     cur.timestamp = new Date(cur.timestamp * 1000);
-    return cur;
+    return cur.toLocaleString();
   }
 
   //get readings from the API
