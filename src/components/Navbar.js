@@ -45,6 +45,7 @@ export default class Navbar extends Component {
                 <li className = 'menuItem'><Link to="/login">Log In</Link></li>
                 <li className = 'menuItem'><Link to="/signup">Sign Up</Link></li>
                 {/* Delete once user token gets passed through */}
+                <li><button className="logout-button" onClick={this.handleLogout}><Link to="/">Logout</Link></button></li>
                 <li className = 'menuItem'><Link to="/profile">Profile</Link></li>
                 <li className = 'menuItem'><Link to="/data">All Data</Link></li>
               </ul>

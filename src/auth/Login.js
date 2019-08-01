@@ -8,7 +8,7 @@ class Login extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
     };
   }
 
@@ -21,18 +21,19 @@ class Login extends Component {
     // SEND DATA TO SERVER
     axios.post(`${SERVER_URL}/auth/login`, this.state)
     .then(response => {
-      localStorage.setItem('serverToken', response.data.token);
+      localStorage.setItem('serverToken', JSON.stringify(response.data.token));
+      this.props.setEmail(this.state.email);
       this.props.updateUser();
+      
     })
     .catch(err => {
-
       console.log(`Error logging in.`, err);
     });
   }
 
   render() {
     if(this.props.user){
-      return (<Redirect to="/" />);
+      return (<Redirect to="/profile" />);
     }
     return(
         <div className='loginDiv'>

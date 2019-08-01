@@ -14,12 +14,18 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: null
+      user: {
+        email: null,
+        name: null,
+      },
+      email: null
     }
   }
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.setEmail();
     this.getUser();
+    
   }
 
   getUser = () => {
@@ -28,11 +34,15 @@ export default class App extends Component {
     // IF THERE IS, TRY TO GET USER INFO
     if(token){
       axios.post(`${SERVER_URL}/auth/current/user`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}`},
+        body: this.state.email
       })
       .then(response => {
         this.setState({
-          user: response.data.user
+          user: {
+            email: response.data.email,
+            name: response.data.name
+          }
         });
       })
       .catch(err => {
@@ -44,6 +54,12 @@ export default class App extends Component {
       console.log('No token in LS');
       this.setState({ user: null });
     }
+  }
+
+  setEmail = (email) => {
+    this.setState({
+      email: email
+    })
   }
 
 
@@ -59,7 +75,7 @@ export default class App extends Component {
             () => (<AboutUs />)
           } />
           <Route path="/login" component={
-              () => (<Login user={this.state.user} updateUser={this.getUser}  />)
+              () => (<Login user={this.state.user} updateUser={this.getUser} setEmail={this.setEmail} />)
             } />
           <Route path="/signup" component={
             () => (<Signup user={this.state.user} updateUser={this.getUser} />)
