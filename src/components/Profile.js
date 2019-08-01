@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-// import SERVER_URL from '../constant/server'
-
-//const API = 'http://watermyplant-backend-env.x589jebncj.us-east-1.elasticbeanstalk.com'
-const API = 'http://localhost:3000';
+import SERVER_URL from '../constant/server'
 
 export default function Profile() {
 
@@ -16,7 +13,7 @@ export default function Profile() {
     console.log(id);
 
     // patch to the api
-    fetch(`${API}/${id}`, {
+    fetch(`${SERVER_URL}/${id}`, {
       method: 'GET'
     })
     .then(response => {

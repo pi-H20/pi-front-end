@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import SERVER_URL from '../constant/server';
 
 
 //const API = 'http://watermyplant-backend-env.x589jebncj.us-east-1.elasticbeanstalk.com/data'
-const API = 'http://localhost:3000/auth/data';
+// const API = 'http://localhost:3000/auth/data';
 
 
 export default function AllData() {
@@ -20,7 +21,7 @@ export default function AllData() {
   const _getReadings = () => {
     
     // fetch from API
-    fetch(API)
+    fetch(`${SERVER_URL}/auth/data`)
     .then( data => data.json())
     .then(readingList => {
        readingList.reverse();
