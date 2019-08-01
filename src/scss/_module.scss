@@ -5,7 +5,7 @@
 
 .main{
     margin: auto 0;
-    padding: 10em;
+    padding: 2em;
 
     flex-direction: row;
 }
@@ -39,3 +39,18 @@
         }
     }
 }
+
+
+#all-data-table{
+  width: 100%;
+     tr{
+        width: 100%;
+
+        td{
+            width: 100%;
+         }
+     }
+
+
+}
+
