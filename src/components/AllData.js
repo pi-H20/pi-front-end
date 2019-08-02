@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SERVER_URL from '../constant/server';
 
-
 export default function AllData() {
   
   //Set status
@@ -31,11 +30,11 @@ export default function AllData() {
   
   return (
     <>
-    <h2>Times the plant was watered:</h2>
+    <h2>Times the plant was watered via low sensor:</h2>
     <ul>
     {readings.map( (reading, index) =>
       <li key={index}>
-        <p>{convert(reading).timestamp.toString()}</p>
+        <p>{index + 1} : {convert(reading).timestamp.toLocaleString()}</p>
       </li>
     )}
   </ul>

@@ -1,12 +1,12 @@
-# pi-frontend
+# Pi-H20 front-end
 
 ## Description
-WaterMyPlant is a Raspberry Pi enabled app that allows users to water their plants remotely. This repo holds the client, which has continuous integration and was deployed via AWS Cloud Formation.
+WaterMyPlant is a Raspberry Pi enabled app that allows users to water their plants remotely. This repo holds the client, which has continuous integration and was deployed via AWS Cloud Formation. The front-end contains the code and interface for the user to interact with the Raspberry Pi without having to connect physically.
 
 ***
 ### Git clone this repo
 
-In the project directory, you can run:
+To run the application locally, in the project directory, you can run:
 
 ### `npm start`
 
@@ -29,9 +29,9 @@ https://pi-front-end-pifrontend1-1gmpoopvgv5q.s3-us-west-2.amazonaws.com/profile
 https://github.com/pi-H20/pi-back-end
 
 **Routes**
-`\login` -> log in page
-`\signup` -> sign up page
-`\aboutus` -> about us page, images and links for the developers
+* `\login` -> log in page
+* `\signup` -> sign up page
+* `\aboutus` -> about us page, images and links for the developers
 #### Once you are logged in:
-`\profile` -> inner landing page, has three buttons to control the Raspberry Pi
-`\data` -> shows a list of all the times the Pi was triggered to release
+* `\profile` -> inner landing page, has three buttons to control the Raspberry Pi
+* `\data` -> shows a list of all the times the Pi was triggered to release

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // .img-logo{
 //     width: 115px;
 //     height: auto;
@@ -51,3 +52,59 @@
 // .ourImage {
 //     border-radius: 100px;
 // }
+=======
+.img-logo{
+    width: 115px;
+    height: auto;
+}
+
+.main{
+    margin: auto 0;
+    padding: 10em;
+
+    flex-direction: row;
+}
+
+.aboutUs{
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: space-between;
+
+    section{
+        width: 200px;
+
+        h2{
+            text-align: center;
+            font-size: 36px;
+        }
+
+        p{
+            line-height: 2em;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        a{
+            text-align: center;
+            text-decoration: none;
+        }
+
+        img{
+            width: 200px;
+        }
+    }
+}
+
+.loginForm, .signupForm {
+    border: 3px solid #f1f1f1;
+    margin: 0px auto;
+    background-color:white;
+    width: 95vw;
+    margin: 2px 35px;
+}
+
+.ourImage {
+    border-radius: 100px;
+}
+
+>>>>>>> 823a999c5321636a0418ad8c0a1c39839254cad2
