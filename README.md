@@ -21,8 +21,7 @@ Now your app is ready to be deployed!
 ***
 
 **Deployed App:**
-
-https://pi-front-end-pifrontend1-1gmpoopvgv5q.s3-us-west-2.amazonaws.com/profile
+http://watermyplantfe-env.ipzxc7xqsb.us-east-1.elasticbeanstalk.com/
 ***
 
 **Back-end repo:**
