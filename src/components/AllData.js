@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SERVER_URL from '../constant/server';
 
+
 export default function AllData() {
   
   //Set status
@@ -11,7 +12,6 @@ export default function AllData() {
     cur.timestamp = new Date(cur.timestamp * 1000);
     return cur;
   }
-
   //get readings from the API
   const _getReadings = () => {
     
@@ -29,16 +29,16 @@ export default function AllData() {
   useEffect(_getReadings, []);
   
   return (
-    <>
-    <h2>Times the plant was watered via low sensor:</h2>
-    <ul>
-    {readings.map( (reading, index) =>
-      <li key={index}>
-        <p>{index + 1} : {convert(reading).timestamp.toLocaleString()}</p>
-      </li>
-    )}
-  </ul>
-  </>
+    <div className="componentDiv">
+      <h2 className="dataTitle">Times the plant was watered via low sensor:</h2>
+      <ul className="smallPlantIcon">
+      {readings.map( (reading, index) =>
+        <li key={index}>
+          {convert(reading).timestamp.toLocaleString()}
+        </li>
+      )}
+      </ul>
+    </div>
   )
   
 }
